@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>My Jobs</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="goToCategories()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+  <ion-toolbar>
+    <ion-segment padding [(ngModel)]="testing">
+      <ion-segment-button value="posted">
+        posted
+      </ion-segment-button>
+      <ion-segment-button value="accepted">
+        accepted
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div [ngSwitch]="testing">
+  <ion-list *ngSwitchCase="'posted'">
+    <ion-item *ngFor="let postedJob of postedJobs" (click)="showPostedJob(postedJob)">
+      <ion-avatar item-start>
+        <img src="assets/imgs/avatar.png">
+      </ion-avatar>
+      <h2>Myself</h2>
+      <h3>{{postedJob.jobTitle}}</h3>
+      <p>{{postedJob.jobDescription}}</p>
+      <button ion-button (click)="goToJobApplicants(postedJob);$event.stopPropagation();">View Job Applicants</button> <!--TODO ID des Jobs mitgeben!! -->
+    </ion-item>
+  </ion-list>
+
+  <ion-list *ngSwitchCase="'accepted'">
+    <ion-item *ngFor="let acceptedJob of acceptedJobs">
+      <ion-avatar item-start>
+        <img src="assets/imgs/avatar.png">
+      </ion-avatar>
+      <h2>{{acceptedJob.jobEmployerFirstName}} {{acceptedJob.jobEmployerLastName}}</h2>
+      <h3>{{acceptedJob.jobTitle}}</h3>
+      <p>{{acceptedJob.jobDescription}}</p>
+      <p>{{acceptedJob.jobSalary}}</p>
+      <button ion-button (click)="goToContactDetails(acceptedJob)">View Contact Details</button>
+    </ion-item>
+
+  </ion-list>
+  </div>
+
+</ion-content>

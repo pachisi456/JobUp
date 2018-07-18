@@ -1,0 +1,58 @@
+<!--
+  Generated template for the JobcreationPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Create a new Job</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+
+    <ion-item>
+      <ion-label stacked>Job Title</ion-label>
+      <ion-input type="text" [(ngModel)]="newJob.jobTitle" [formControl]="jobTitleControl" required></ion-input>
+    </ion-item>
+    <ion-item *ngIf="!jobTitleControl.valid && jobTitleControl.touched">
+      <p class="error">Please enter a job title.</p>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Describe the job in a few words</ion-label>
+      <ion-textarea type="text" [attr.rows]=5 [(ngModel)]="newJob.jobDescription" [formControl]="jobDescriptionControl" required></ion-textarea>
+    </ion-item>
+    <ion-item *ngIf="!jobDescriptionControl.valid && jobDescriptionControl.touched">
+      <p class="error">Please enter a job description.</p>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Job Salary per Hour (e.g. "12.5")</ion-label>
+      <ion-input type="number" [(ngModel)]="newJob.jobSalary" [formControl]="jobSalaryControl" required></ion-input>
+    </ion-item>
+    <ion-item *ngIf="!jobSalaryControl.valid && jobSalaryControl.touched">
+      <p class="error">Please enter a job salary.</p>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Job Duration</ion-label>
+      <ion-input type="text" [(ngModel)]="newJob.jobDuration" [formControl]="jobDurationControl" required></ion-input>
+    </ion-item>
+    <ion-item *ngIf="!jobDurationControl.valid && jobDurationControl.touched">
+      <p class="error">Please enter a job duration.</p>
+    </ion-item>
+
+  </ion-list>
+
+  <div text-center>
+    <button ion-button class="signup-button" (click)="createNewJob()" [disabled]="!(jobTitleControl.valid && jobDescriptionControl.valid
+&& jobDurationControl.valid && jobSalaryControl.valid)">Create New Job</button>
+  </div>
+
+</ion-content>

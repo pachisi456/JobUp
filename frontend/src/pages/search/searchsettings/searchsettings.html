@@ -1,0 +1,19 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Search Settings</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <div text-left class="searchTitle">Search Radius: {{searchRadius}} Kilometer</div>
+      <ion-range min="1" max="25" [(ngModel)]="searchRadius" color="primary" [pin]="true" (ionChange)="updateRadius()">
+        <ion-label range-left>1 km</ion-label>
+        <ion-label range-right>25 km</ion-label>
+      </ion-range>
+
+</ion-content>

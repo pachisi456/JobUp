@@ -1,0 +1,24 @@
+version: "2"
+
+volumes:
+  mongostorage:
+
+services:
+  web:
+    container_name: web
+    build: .
+    volumes:
+      - ./:/app
+    ports:
+      - "3000:3000"
+    links:
+      - mongo
+    depends_on:
+      - mongo
+  mongo:
+    container_name: mongo
+    image: mongo
+    volumes:
+      - mongostorage:/data/db
+    ports:
+      - "27017:27017"

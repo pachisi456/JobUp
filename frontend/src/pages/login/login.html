@@ -1,0 +1,38 @@
+
+
+<ion-content padding class="transparent-header" [ngStyle]="{'background-image': 'url(' + backgroundImage +')'}">
+  <div padding>
+    <ion-row>
+      <ion-col>
+        <img class="logo" src="assets/imgs/logo.png" height="100" width="100"/>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-list inset class="no-border">
+          <ion-item>
+            <ion-input type="text" placeholder="Username" [(ngModel)]="inputUsername" [formControl]="userNameControl" required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input type="password" placeholder="Password" [(ngModel)]="inputPassword" [formControl]="userPasswordControl" required></ion-input>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <button ion-button class="login-button" (click)="loginUser()" [disabled]="!(userNameControl.valid && userPasswordControl.valid)">Login</button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <div (click)="signup()">
+          <span>Or create a <b>new account</b>.</span>
+        </div>
+        <div (click)="loginID()">
+          <img class="touchid" src="assets/imgs/touchid.png" />
+        </div>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>

@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Job Search
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="goToSearchsettings()">
+        <ion-icon name="options"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div swing-stack #myswing1 [stackConfig]="stackConfig" (throwoutleft)="voteUp(false)" (throwoutright)="voteUp(true)" id="card-stack" [style.zIndex]="-1000" >
+        <ion-card #mycards1 swing-card *ngFor="let c of cards; trackBy:trackByCards; let i=index;" [style.zIndex]="-1 * i" [style.marginTop]="i === 0 ? '0px' : '12px'" class="ion-card">
+          <ion-item *ngIf="c.picture">
+            <ion-avatar item-start>
+              <img *ngIf="c.picture"[src]="c.picture.medium">
+            </ion-avatar>
+          </ion-item>
+          <h2>{{ c.jobTitle }}</h2>
+          <p>{{ c.jobCategory }}</p>
+          <div *ngIf="c.jobCategory == 'Animal Care'">
+            <img src="assets/imgs/animalcare.jpg">
+          </div>
+          <div *ngIf="c.jobCategory == 'Child Care'">
+            <img src="assets/imgs/childcare.jpg">
+          </div>
+          <div *ngIf="c.jobCategory == 'Cleaning Service'">
+            <img src="assets/imgs/cleaningservice.jpg">
+          </div>
+          <div *ngIf="c.jobCategory == 'Gardening Work'">
+            <img src="assets/imgs/lawn-mowing.jpg">
+          </div>
+          <div *ngIf="c.jobCategory == 'Geriatric Care'">
+            <img src="assets/imgs/geriatriccare.jpg">
+          </div>
+          <div *ngIf="c.jobCategory == 'Groceries Shopping'">
+            <img src="assets/imgs/groceriesshopping.jpg">
+          </div>
+          <div *ngIf="c.jobCategory == 'Household Assistance'">
+            <img src="assets/imgs/householdassistance.jpg">
+          </div>
+          <ion-card-content>
+            <p>{{c.jobDescription}}</p>
+            <ion-grid>
+          <ion-row>
+            <ion-col>
+              <button ion-button icon-left clear small (click)="voteUp(false)">
+                <ion-icon name="thumbs-down"></ion-icon>
+                <div>Dislike</div>
+              </button>
+            </ion-col>
+            <ion-col text-right>
+              <button ion-button icon-left clear small (click)="voteUp(true)">
+                <ion-icon name="thumbs-up"></ion-icon>
+                <div>Like</div>
+              </button>
+            </ion-col>
+          </ion-row>
+            </ion-grid>
+          </ion-card-content>
+        </ion-card>
+  </div>
+  <p style="text-align: center; width: 100%;">{{ recentCard }}</p>
+</ion-content>

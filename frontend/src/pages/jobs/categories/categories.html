@@ -1,0 +1,17 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Categories</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-list>
+    <button ion-item *ngFor="let category of categories" (click)="goToSubcategory(category)">
+      {{category}}
+    </button>
+  </ion-list>
+</ion-content>

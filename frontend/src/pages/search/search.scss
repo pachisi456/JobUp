@@ -1,0 +1,19 @@
+page-search {
+  #card-stack {
+    width: 90%;
+    height: 75%;
+    margin: 1em;
+    position: relative;
+  }
+
+  #card-stack ion-card {
+    border-radius: 5px;
+    position: absolute;
+    text-align: left;
+    top: 3%;
+    height: 90%;
+  }
+}
+
+
+
