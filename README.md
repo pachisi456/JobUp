@@ -1,3 +1,5 @@
+# JobUp
+Für mehr Dokumentation siehe https://pachisi456.github.io.
 # Usecase
 Die mobile App JobUp soll eine C2C Dienstleistungsvermittlung realisieren. Nutzer können Dienstleistungen anbieten (Anbieter), die von anderen Nutzern umgesetzt werden (Dienstleister). Dabei handelt es sich nicht nur um die Vermittlung von Handwerkern oder Unterehmensdienstleistungen, sondern soll für Privatpersonen die Möglichkeit bieten, Aufgaben auszulagern oder die eigene Arbeitskraft besser zu nutzen.
 # Kernelemente
